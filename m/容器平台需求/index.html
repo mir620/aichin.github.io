@@ -43,7 +43,7 @@
 				<h1 class="site-name"><a href="/" title="Aichin">Aichin</a></h1>
 				<h2 class="blog-motto">Premature optimization is the root of all evil.</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -59,7 +59,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:blog.aichin.net">
 					</form>
 					
@@ -82,14 +82,14 @@
 		<a href="/about" title="Kang Qin" target="_blank" itemprop="author">Kang Qin</a>
 		
   <p class="article-time">
-    <time datetime="2018-01-08T01:03:26.496Z" itemprop="datePublished"> 发表于 2018-01-08</time>
+    <time datetime="2018-01-08T01:03:26.496Z" itemprop="datePublished"> Published 2018-01-08</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Rancher-reqire"><span class="toc-number">1.</span> <span class="toc-text">Rancher reqire</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库密码有些是指定的，有些不是，不明白原因"><span class="toc-number">1.1.</span> <span class="toc-text">数据库密码有些是指定的，有些不是，不明白原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#镜像仓库间互转"><span class="toc-number">1.2.</span> <span class="toc-text">镜像仓库间互转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加一个调试功能，临时保证容器可以运行起来"><span class="toc-number">1.3.</span> <span class="toc-text">增加一个调试功能，临时保证容器可以运行起来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#界面太乱，所有栈都在显示一个平面上，太乱"><span class="toc-number">1.4.</span> <span class="toc-text">界面太乱，所有栈都在显示一个平面上，太乱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可以自定软件栈的权限，只有指定权限的用户才可以看"><span class="toc-number">1.5.</span> <span class="toc-text">可以自定软件栈的权限，只有指定权限的用户才可以看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用已有的栈布局直接生成-docker-compose-及-rancher-compose"><span class="toc-number">1.6.</span> <span class="toc-text">使用已有的栈布局直接生成 docker-compose 及 rancher-compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果已有-某个栈，再次部署时，不仅有部署，而且有更新的选项"><span class="toc-number">1.7.</span> <span class="toc-text">如果已有 某个栈，再次部署时，不仅有部署，而且有更新的选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过配置文件-conf-中需要替换的变量，来自动生成-docker-compose-中的-environment-里的变量"><span class="toc-number">1.8.</span> <span class="toc-text">通过配置文件 /conf 中需要替换的变量，来自动生成 docker-compose 中的 environment 里的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有时通过-racher-compose-自动化删除了栈后，容器还在，导致端口占用，只能手工删除容器"><span class="toc-number">1.9.</span> <span class="toc-text">有时通过 racher-compose 自动化删除了栈后，容器还在，导致端口占用，只能手工删除容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rancher-compose-有时无法删除栈，重试二次依然无效"><span class="toc-number">1.10.</span> <span class="toc-text">rancher-compose 有时无法删除栈，重试二次依然无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业务不正常告警"><span class="toc-number">1.11.</span> <span class="toc-text">业务不正常告警</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业务运行所有的日志（包括编译日志）可以通过系统查看"><span class="toc-number">1.12.</span> <span class="toc-text">业务运行所有的日志（包括编译日志）可以通过系统查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果服务只创建不启动，升级时会报错"><span class="toc-number">1.13.</span> <span class="toc-text">如果服务只创建不启动，升级时会报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务已经成功，但软件栈还是显示红色"><span class="toc-number">1.14.</span> <span class="toc-text">服务已经成功，但软件栈还是显示红色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#standalone-容器会自动启动，从而占用端口，导致部署失败"><span class="toc-number">1.15.</span> <span class="toc-text">standalone 容器会自动启动，从而占用端口，导致部署失败</span></a></li></ol></li></ol>
 		
@@ -161,17 +161,17 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Rancher-reqire"><span class="toc-number">1.</span> <span class="toc-text">Rancher reqire</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库密码有些是指定的，有些不是，不明白原因"><span class="toc-number">1.1.</span> <span class="toc-text">数据库密码有些是指定的，有些不是，不明白原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#镜像仓库间互转"><span class="toc-number">1.2.</span> <span class="toc-text">镜像仓库间互转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加一个调试功能，临时保证容器可以运行起来"><span class="toc-number">1.3.</span> <span class="toc-text">增加一个调试功能，临时保证容器可以运行起来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#界面太乱，所有栈都在显示一个平面上，太乱"><span class="toc-number">1.4.</span> <span class="toc-text">界面太乱，所有栈都在显示一个平面上，太乱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可以自定软件栈的权限，只有指定权限的用户才可以看"><span class="toc-number">1.5.</span> <span class="toc-text">可以自定软件栈的权限，只有指定权限的用户才可以看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用已有的栈布局直接生成-docker-compose-及-rancher-compose"><span class="toc-number">1.6.</span> <span class="toc-text">使用已有的栈布局直接生成 docker-compose 及 rancher-compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果已有-某个栈，再次部署时，不仅有部署，而且有更新的选项"><span class="toc-number">1.7.</span> <span class="toc-text">如果已有 某个栈，再次部署时，不仅有部署，而且有更新的选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过配置文件-conf-中需要替换的变量，来自动生成-docker-compose-中的-environment-里的变量"><span class="toc-number">1.8.</span> <span class="toc-text">通过配置文件 /conf 中需要替换的变量，来自动生成 docker-compose 中的 environment 里的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有时通过-racher-compose-自动化删除了栈后，容器还在，导致端口占用，只能手工删除容器"><span class="toc-number">1.9.</span> <span class="toc-text">有时通过 racher-compose 自动化删除了栈后，容器还在，导致端口占用，只能手工删除容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rancher-compose-有时无法删除栈，重试二次依然无效"><span class="toc-number">1.10.</span> <span class="toc-text">rancher-compose 有时无法删除栈，重试二次依然无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业务不正常告警"><span class="toc-number">1.11.</span> <span class="toc-text">业务不正常告警</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业务运行所有的日志（包括编译日志）可以通过系统查看"><span class="toc-number">1.12.</span> <span class="toc-text">业务运行所有的日志（包括编译日志）可以通过系统查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果服务只创建不启动，升级时会报错"><span class="toc-number">1.13.</span> <span class="toc-text">如果服务只创建不启动，升级时会报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务已经成功，但软件栈还是显示红色"><span class="toc-number">1.14.</span> <span class="toc-text">服务已经成功，但软件栈还是显示红色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#standalone-容器会自动启动，从而占用端口，导致部署失败"><span class="toc-number">1.15.</span> <span class="toc-text">standalone 容器会自动启动，从而占用端口，导致部署失败</span></a></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -182,7 +182,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -204,11 +204,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -432,7 +432,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
