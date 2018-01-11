@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.aichin.net/"/>
-  <updated>2018-01-09T01:29:37.779Z</updated>
+  <updated>2018-01-11T07:38:36.022Z</updated>
   <id>http://blog.aichin.net/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://blog.aichin.net/m/%E5%AE%89%E8%A3%85docker/"/>
+    <id>http://blog.aichin.net/m/安装docker/</id>
+    <published>2018-01-11T07:38:17.694Z</published>
+    <updated>2018-01-11T07:38:36.022Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>注意事项：</p><blockquote><ul><li>尽量安装最新稳定版本的docker</li></ul></blockquote><p>##一、操作步骤：<br>1、安装apt cert、key、repository<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y apt-transport-https  ca-certificates  curl  software-properties-common</span><br><span class="line">curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add –</span><br><span class="line">add-apt-repository <span class="string">"deb https://apt.dockerproject.org/repo/ ubuntu-<span class="variable">$(lsb_release -cs)</span> main"</span></span><br></pre></td></tr></table></figure></p><p>2、查看并安装docker-engine<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-cache madison docker-engine</span><br><span class="line">apt-get -y install docker-engine[=&lt;VERSION_STRING&gt;]</span><br></pre></td></tr></table></figure></p><p>3、启动并设置自启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl start  docker.service</span></span><br><span class="line"><span class="comment"># systemctl status  docker.service</span></span><br></pre></td></tr></table></figure></p><p>##二、检查<br>1、以下命令如无warning即为正常<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure></p><p>##三、安装云管理平台<br>注意事项：</p><blockquote><ul><li>目前使用开源版rancher安装，后续安装会从视维服务器进行下载安装</li><li>Rancher安装会从官方拉取镜像，此过程需耗时，具体时间视网速而定</li><li>请按以上操作步骤安装另一台主机，如果测试环境，可以直接用本机既做服务器又做主机</li></ul></blockquote><p>1)接取官方镜像<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull rancher/server</span><br></pre></td></tr></table></figure></p><p>2)启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always \</span><br><span class="line">-v /home/rancher_server/db:/var/lib/mysql \</span><br><span class="line">--name rancher-server -p 8080:8080  rancher/server</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装docker&quot;&gt;&lt;a href=&quot;#安装docker&quot; class=&quot;headerlink&quot; title=&quot;安装docker&quot;&gt;&lt;/a&gt;安装docker&lt;/h2&gt;&lt;p&gt;注意事项：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;尽量安装最新稳定版本的doc
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Rancher 需求</title>
