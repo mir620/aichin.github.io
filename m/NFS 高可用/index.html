@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="Aichin">
 <meta property="og:description" content="来源：温柔易淡 NFS作为业界常用的共享存储方案，被众多公司采用。我司也不列外，使用NFS作为共享存储，为前端WEB server提供服务，主要存储网页代码以及其他文件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T03:40:27.451Z">
+<meta property="og:updated_time" content="2018-01-12T05:41:56.743Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NFS高可用">
 <meta name="twitter:description" content="来源：温柔易淡 NFS作为业界常用的共享存储方案，被众多公司采用。我司也不列外，使用NFS作为共享存储，为前端WEB server提供服务，主要存储网页代码以及其他文件。">
@@ -422,7 +422,29 @@
 <li>借助DRBD，实现文件同步。</li>
 </ul>
 <p>上诉两种方案都没有实现高可用，只是实现了两者数据同步。但是业务要求NFS服务器必须是高可用，所以我们在第二种同步方案的基础上，在结合heartbeat来实现高可用。</p>
-<h2 id="2、动手搭建"><a href="#2、动手搭建" class="headerlink" title="2、动手搭建"></a>2、动手搭建</h2><p>我们看看我们的服务器信息：<br>IP | 角色<br>-|-<br>192.168.1.4 | NFS-Client(App-Server)<br>192.168.1.7 | NFS-Master<br>192.168.1.8 | NFS-Backup</p>
+<h2 id="2、动手搭建"><a href="#2、动手搭建" class="headerlink" title="2、动手搭建"></a>2、动手搭建</h2><p>我们看看我们的服务器信息：</p>
+<table>
+<thead>
+<tr>
+<th>IP</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.1.4</td>
+<td>NFS-Client(App-Server)</td>
+</tr>
+<tr>
+<td>192.168.1.7</td>
+<td>NFS-Master</td>
+</tr>
+<tr>
+<td>192.168.1.8</td>
+<td>NFS-Backup</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>以上系统版本都是CentOs6.6</li>
 <li>heartbeat的VIP为192.168.1.100</li>
