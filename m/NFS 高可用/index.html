@@ -84,6 +84,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Aichin" type="application/atom+xml" />
 
@@ -97,16 +99,17 @@
 
 
 
-<meta name="description" content="��ע�Ƽ��㡢�����ݡ��������Զ�����ά">
-<meta property="og:type" content="website">
+<meta name="description" content="NFS 高可用标签（空格分隔）： 未分类  来源：温柔易淡 NFS作为业界常用的共享存储方案，被众多公司采用。我司也不列外，使用NFS作为共享存储，为前端WEB server提供服务，主要存储网页代码以及其他文件。 1、高可用方案说道NFS，不得不说它的同步技术，同步技术有两种，  借助RSYNC+inotify来实现主从同步数据。 借助DRBD，实现文件同步。  上诉两种方案都没有实现高可用，只">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Aichin">
-<meta property="og:url" content="http://blog.aichin.net/index.html">
+<meta property="og:url" content="http://blog.aichin.net/m/NFS 高可用/index.html">
 <meta property="og:site_name" content="Aichin">
-<meta property="og:description" content="��ע�Ƽ��㡢�����ݡ��������Զ�����ά">
+<meta property="og:description" content="NFS 高可用标签（空格分隔）： 未分类  来源：温柔易淡 NFS作为业界常用的共享存储方案，被众多公司采用。我司也不列外，使用NFS作为共享存储，为前端WEB server提供服务，主要存储网页代码以及其他文件。 1、高可用方案说道NFS，不得不说它的同步技术，同步技术有两种，  借助RSYNC+inotify来实现主从同步数据。 借助DRBD，实现文件同步。  上诉两种方案都没有实现高可用，只">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-12T03:35:16.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Aichin">
-<meta name="twitter:description" content="��ע�Ƽ��㡢�����ݡ��������Զ�����ά">
+<meta name="twitter:description" content="NFS 高可用标签（空格分隔）： 未分类  来源：温柔易淡 NFS作为业界常用的共享存储方案，被众多公司采用。我司也不列外，使用NFS作为共享存储，为前端WEB server提供服务，主要存储网页代码以及其他文件。 1、高可用方案说道NFS，不得不说它的同步技术，同步技术有两种，  借助RSYNC+inotify来实现主从同步数据。 借助DRBD，实现文件同步。  上诉两种方案都没有实现高可用，只">
 
 
 
@@ -134,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.aichin.net/"/>
+  <link rel="canonical" href="http://blog.aichin.net/m/NFS 高可用/"/>
 
 
 
 
 
-  <title>Aichin - Premature optimization is the root of all evil.</title>
+  <title> | Aichin</title>
   
 
 
@@ -165,9 +168,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-   page-home 
- ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -314,9 +315,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -342,9 +343,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/m/NFS 高可用/" itemprop="url">未命名</a></h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -413,9 +412,7 @@
       
 
       
-        
-          
-            <h1 id="NFS-高可用"><a href="#NFS-高可用" class="headerlink" title="NFS 高可用"></a>NFS 高可用</h1><p>标签（空格分隔）： 未分类</p>
+        <h1 id="NFS-高可用"><a href="#NFS-高可用" class="headerlink" title="NFS 高可用"></a>NFS 高可用</h1><p>标签（空格分隔）： 未分类</p>
 <hr>
 <p><a href="http://www.cnblogs.com/liaojiafa/p/6129499.html" target="_blank" rel="noopener">来源：温柔易淡</a></p>
 <p>NFS作为业界常用的共享存储方案，被众多公司采用。我司也不列外，使用NFS作为共享存储，为前端WEB server提供服务，主要存储网页代码以及其他文件。</p>
@@ -463,20 +460,27 @@
 <h3 id="7-1、测试高可用性"><a href="#7-1、测试高可用性" class="headerlink" title="7.1、测试高可用性"></a>7.1、测试高可用性</h3><p>此时VIP在nfsmaster上面，我们在nfsclient端首先挂载NFS共享目录后创建一些文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@nfsclient /]<span class="comment"># mount -t nfs 192.168.1.100:/nfs /database    #</span></span><br><span class="line">[root@nfsclient /]<span class="comment"># cd /database/</span></span><br><span class="line">[root@nfsclient database]<span class="comment"># touch &#123;1..10&#125;</span></span><br><span class="line">[root@nfsclient database]<span class="comment"># ls</span></span><br><span class="line">1  10  2  3  4  5  6  7  8  9  lost+found  readme</span><br></pre></td></tr></table></figure></p>
 <p>关闭nfsmaster的电源，模拟宕机。此时等待VIP漂移到nfsbackup上面。待漂移到位后，我们继续在nfsclient上操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@nfsclient database]<span class="comment"># ls    # 可以查看目录下的文件</span></span><br><span class="line">1  10  2  3  4  5  6  7  8  9  lost+found  readme</span><br><span class="line">[root@nfsclient database]<span class="comment"># rm -f &#123;1..5&#125;     # 也可以删除文件。</span></span><br><span class="line">[root@nfsclient database]<span class="comment"># ls</span></span><br><span class="line">10  6  7  8  9  lost+found  readme</span><br></pre></td></tr></table></figure></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -484,435 +488,71 @@
       
 
       
-
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.aichin.net/m/安装docker/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kang Qin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aichin">
-    </span>
-
-    
-      <header class="post-header">
-
+        <div class="post-widgets">
         
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/m/安装docker/" itemprop="url">Docker安装</a></h2>
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
         
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T15:38:17+08:00">
-                2018-01-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/m/安装docker/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="m/安装docker/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/m/安装docker/" class="leancloud_visitors" data-flag-title="Docker安装">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+        
         </div>
-      </header>
-    
-
-    <div class="post-body han-init-context" itemprop="articleBody">
-
       
       
 
       
-        
-          <p>主要介绍docker与Rancher的安装</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/m/安装docker/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/m/安装docker/" rel="next" title="Docker安装">
+                <i class="fa fa-chevron-left"></i> Docker安装
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.aichin.net/m/容器平台需求/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kang Qin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aichin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/m/容器平台需求/" itemprop="url">Rancher 需求</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T09:03:26+08:00">
-                2018-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/m/容器平台需求/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="m/容器平台需求/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/m/容器平台需求/" class="leancloud_visitors" data-flag-title="Rancher 需求">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/m/容器平台需求/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.aichin.net/m/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kang Qin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aichin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/m/hello-world/" itemprop="url">Hello World</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T17:59:55+08:00">
-                2018-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/m/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="m/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/m/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/m/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -920,6 +560,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -939,8 +590,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -1020,6 +680,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NFS-高可用"><span class="nav-number">1.</span> <span class="nav-text">NFS 高可用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、高可用方案"><span class="nav-number">1.1.</span> <span class="nav-text">1、高可用方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、动手搭建"><span class="nav-number">1.2.</span> <span class="nav-text">2、动手搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、基础工作"><span class="nav-number">1.3.</span> <span class="nav-text">3、基础工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、搭建DRBD"><span class="nav-number">1.4.</span> <span class="nav-text">4、搭建DRBD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1、安装DRBD"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1、安装DRBD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2、格式化磁盘"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2、格式化磁盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3、启动drbd"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3、启动drbd</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、搭建heartbeat"><span class="nav-number">1.5.</span> <span class="nav-text">5、搭建heartbeat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1、安装heartbeat"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1、安装heartbeat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2、配置heartbeat"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2、配置heartbeat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3、启动heartbeat"><span class="nav-number">1.5.3.</span> <span class="nav-text">5.3、启动heartbeat</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、NFS"><span class="nav-number">1.6.</span> <span class="nav-text">6、NFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1、安装"><span class="nav-number">1.6.1.</span> <span class="nav-text">6.1、安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1、启动NFS并配置它"><span class="nav-number">1.6.2.</span> <span class="nav-text">6.1、启动NFS并配置它</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2、客户端挂载它"><span class="nav-number">1.6.3.</span> <span class="nav-text">6.2、客户端挂载它</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3、模拟Nfs-server故障"><span class="nav-number">1.6.4.</span> <span class="nav-text">6.3、模拟Nfs-server故障</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、高可用方案"><span class="nav-number">1.7.</span> <span class="nav-text">7、高可用方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1、测试高可用性"><span class="nav-number">1.7.1.</span> <span class="nav-text">7.1、测试高可用性</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1124,10 +800,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -1145,6 +821,18 @@
       <script id="dsq-count-scr" src="https://dongcj.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://blog.aichin.net/m/NFS 高可用/';
+          this.page.identifier = 'm/NFS 高可用/';
+          this.page.title = '';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dongcj.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
@@ -1602,6 +1290,23 @@
   
 
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 6234,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
