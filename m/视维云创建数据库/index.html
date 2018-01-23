@@ -84,6 +84,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Aichin" type="application/atom+xml" />
 
@@ -97,17 +99,17 @@
 
 
 
-<meta name="description" content="主要介绍docker与Rancher的安装">
+<meta name="description" content="视维云创建数据库创建数据库123create database portalCREATE USER portal WITH PASSWORD &apos;xxxxx&apos;;alter database portal owner to portal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker安装">
-<meta property="og:url" content="http://blog.aichin.net/m/安装docker/index.html">
+<meta property="og:title" content="Aichin">
+<meta property="og:url" content="http://blog.aichin.net/m/视维云创建数据库/index.html">
 <meta property="og:site_name" content="Aichin">
-<meta property="og:description" content="主要介绍docker与Rancher的安装">
+<meta property="og:description" content="视维云创建数据库创建数据库123create database portalCREATE USER portal WITH PASSWORD &apos;xxxxx&apos;;alter database portal owner to portal">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-11T07:44:20.039Z">
+<meta property="og:updated_time" content="2018-01-23T01:26:15.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker安装">
-<meta name="twitter:description" content="主要介绍docker与Rancher的安装">
+<meta name="twitter:title" content="Aichin">
+<meta name="twitter:description" content="视维云创建数据库创建数据库123create database portalCREATE USER portal WITH PASSWORD &apos;xxxxx&apos;;alter database portal owner to portal">
 
 
 
@@ -135,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.aichin.net/m/安装docker/"/>
+  <link rel="canonical" href="http://blog.aichin.net/m/视维云创建数据库/"/>
 
 
 
 
 
-  <title>Docker安装 | Aichin</title>
+  <title> | Aichin</title>
   
 
 
@@ -324,7 +326,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.aichin.net/m/安装docker/">
+    <link itemprop="mainEntityOfPage" href="http://blog.aichin.net/m/视维云创建数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kang Qin">
@@ -341,7 +343,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Docker安装</h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -353,8 +355,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T15:38:17+08:00">
-                2018-01-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T09:25:58+08:00">
+                2018-01-23
               </time>
             
 
@@ -372,9 +374,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/m/安装docker/#comments" itemprop="discussionUrl">
+                <a href="/m/视维云创建数据库/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="m/安装docker/" itemprop="commentCount"></span>
+                        data-disqus-identifier="m/视维云创建数据库/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -382,7 +384,7 @@
 
           
           
-             <span id="/m/安装docker/" class="leancloud_visitors" data-flag-title="Docker安装">
+             <span id="/m/视维云创建数据库/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -410,28 +412,7 @@
       
 
       
-        <p>主要介绍docker与Rancher的安装</p>
-<a id="more"></a>
-<p>注意事项：</p>
-<blockquote>
-<ul>
-<li>尽量安装最新稳定版本的docker</li>
-</ul>
-</blockquote>
-<p>##一、操作步骤：<br>1、安装apt cert、key、repository<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y apt-transport-https  ca-certificates  curl  software-properties-common</span><br><span class="line">curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add –</span><br><span class="line">add-apt-repository <span class="string">"deb https://apt.dockerproject.org/repo/ ubuntu-<span class="variable">$(lsb_release -cs)</span> main"</span></span><br></pre></td></tr></table></figure></p>
-<p>2、查看并安装docker-engine<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-cache madison docker-engine</span><br><span class="line">apt-get -y install docker-engine[=&lt;VERSION_STRING&gt;]</span><br></pre></td></tr></table></figure></p>
-<p>3、启动并设置自启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl start  docker.service</span></span><br><span class="line"><span class="comment"># systemctl status  docker.service</span></span><br></pre></td></tr></table></figure></p>
-<p>##二、检查<br>1、以下命令如无warning即为正常<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure></p>
-<p>##三、安装云管理平台<br>注意事项：</p>
-<blockquote>
-<ul>
-<li>目前使用开源版rancher安装，后续安装会从视维服务器进行下载安装</li>
-<li>Rancher安装会从官方拉取镜像，此过程需耗时，具体时间视网速而定</li>
-<li>请按以上操作步骤安装另一台主机，如果测试环境，可以直接用本机既做服务器又做主机</li>
-</ul>
-</blockquote>
-<p>1)接取官方镜像<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull rancher/server</span><br></pre></td></tr></table></figure></p>
-<p>2)启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always \</span><br><span class="line">-v /home/rancher_server/db:/var/lib/mysql \</span><br><span class="line">--name rancher-server -p 8080:8080  rancher/server</span><br></pre></td></tr></table></figure></p>
+        <h1 id="视维云创建数据库"><a href="#视维云创建数据库" class="headerlink" title="视维云创建数据库"></a>视维云创建数据库</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database portal</span><br><span class="line">CREATE USER portal WITH PASSWORD <span class="string">'xxxxx'</span>;</span><br><span class="line">alter database portal owner to portal</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -478,15 +459,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/m/制作镜像脚本/" rel="next" title="制作镜像脚本">
+                <i class="fa fa-chevron-left"></i> 制作镜像脚本
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/m/NFS 高可用/" rel="prev" title="NFS高可用">
-                NFS高可用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -644,6 +634,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#视维云创建数据库"><span class="nav-number">1.</span> <span class="nav-text">视维云创建数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number">1.1.</span> <span class="nav-text">创建数据库</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -772,9 +778,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://blog.aichin.net/m/安装docker/';
-          this.page.identifier = 'm/安装docker/';
-          this.page.title = 'Docker安装';
+          this.page.url = 'http://blog.aichin.net/m/视维云创建数据库/';
+          this.page.identifier = 'm/视维云创建数据库/';
+          this.page.title = '';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://dongcj.disqus.com/embed.js';
